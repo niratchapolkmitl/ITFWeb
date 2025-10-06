@@ -4,6 +4,8 @@ body {
     font-style: normal;
 
     margin: 0;
+    /* Add padding to the top of the body to prevent content from being hidden behind the fixed navbar */
+    padding-top: 50px; /* Adjust this value if the nav height changes */
 }
 
 b {
@@ -22,7 +24,11 @@ nav {
     padding: 0 1em 0;
     position: fixed; /* Set the navbar to fixed position */
     top: 0;
-    width: 98.5%;
+    /* Set width to 100% and adjust padding based on box-sizing */
+    width: 100%; 
+    height: 50px; /* Explicit height for better padding calculation */
+    box-sizing: border-box; /* Include padding/border in the element's total width/height */
+    z-index: 1000; /* Ensure the nav stays on top of other content */
 }
 
 .curvedBorder {
@@ -41,6 +47,21 @@ nav {
 
 .welcome {
     display: flex;
-    margin: 10em;
+    /* Reduced margin-top to avoid large empty space below the fixed nav */
+    margin: 1em; 
     justify-content: center;
+}
+
+/* Optional: Add some basic styling for buttons */
+button {
+    padding: 0.7em 1.5em;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
 }
